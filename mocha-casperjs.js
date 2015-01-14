@@ -94,7 +94,7 @@ module.exports = function (Mocha, casper, utils) {
             // and if there are steps not ran,
             // and no set of steps are running (casper.checker is the setInterval for the checkSteps call)
             if (currentTest && casper.steps && casper.steps.length &&
-                casper.step <= casper.steps.length && !casper.checker) {
+                casper.step < casper.steps.length && !casper.checker) {
               casper.run(function () {
                 casper.checker = null
                 // only call done if the function is not async, otherwise
